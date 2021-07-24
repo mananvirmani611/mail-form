@@ -1,0 +1,47 @@
+body{
+  text-align: center;
+}
+div.form-div{
+  text-align: left;
+  width: 40%;
+  background-color: #f3edd6 !important;
+  border-radius: 10px !important;
+  padding: 6% 7% 10% 7% !important;
+  border:2px gray solid;
+  margin: 0 auto;
+}
+#main-section{
+  padding: 10%;
+  width: 100%;
+  text-align: center;
+}
+.input-item{
+  margin: 3% 0;
+  padding: 10px;
+  background-color: #f8f4e5;
+  border-radius: 10px;
+  font-family: 'Dosis', sans-serif;
+  width: 100%;
+}
+body{
+  background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/38816/image-from-rawpixel-id-2044837-jpeg.jpg');
+}
+#main-heading{
+  font-family: 'Dosis', sans-serif;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+#submit-button{
+  margin-top: 20px;
+  background-color:#f85404;
+  border:0px ;
+  padding: 5px 12px ;
+    font-family: 'Dosis', sans-serif;
+    font-size: 20px;
+}
+#last-div{
+  text-align: center;
+}
+.hidden{
+  display: none;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@600;800&display=swap" rel="stylesheet">
+  </head>
+  <body>
+        <section id="main-section">
+        <div class="form-div shadow p-3 mb-5 bg-white rounded">
+            <h2 id="main-heading">Register Yourself Now</h2>
+            <form name="submit-to-google-sheet" class="">
+                  <input class="input-item" id="email" name="Email" type="email" required placeholder="Your Email Address" value="">
+                  <br>
+                  <input type="text" id="name" class="input-item" name="Name" value="" placeholder="Your Name" >
+                  <br>
+                  <button type="submit" name="button" class="btn btn-success" id="submit-button">Submit</button>
+                  <br>
+                  <div id="last-div" class="hidden">
+
+                    <h5 style="margin-top:20px;">Loading ....</h5>
+                  </div>
+            </form>
+        </div>
+        </section>
+
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script type="text/javascript">
+          const scriptURL = 'https://script.google.com/macros/s/AKfycbzKNpqCph8-n9Re7FNjFk00crJIyh0wt0WUBI8oDAAjUFTtJHUBpJa2OnmsmaiYQAyubg/exec'
+      		const form = document.forms['submit-to-google-sheet']
+
+      		form.addEventListener('submit', e => {
+            document.getElementById('last-div').classList.remove("hidden");
+      			e.preventDefault()
+      			fetch(scriptURL, {
+      					method: 'POST',
+      					body: new FormData(form)
+      				})
+      				.then(response => {console.log('Success!', response)
+      				console.log("ethe")
+      				var email = document.getElementById('email').value;
+              document.getElementById('email').value = "";
+              document.getElementById('name').value = "";
+      				console.log(email)
+      				// sendEmail(email)
+              swal({
+                text: "You have been registered!\nThankyou for registering!",
+  icon: "success"
+});
+document.getElementById('last-div').classList.add("hidden");
+      			})
+      				.catch(error => console.error('Error!', error.message))
+      		})
+        </script>
+  </body>
+</html>
